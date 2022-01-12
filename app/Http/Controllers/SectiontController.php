@@ -6,6 +6,7 @@ use View;
 use Session;
 use Illuminate\Http\Request;
 use App\section;
+use App\Institutation;
 class SectiontController extends Controller
 {
     /**
@@ -25,8 +26,10 @@ class SectiontController extends Controller
      */
     public function create()
     {
-        $section=  Section::get();
-        return view('insert.section',compact('section'));
+        $section=  Section::all();
+        $inst=  Institution::all();
+       
+        return view('insert.section',compact('section','inst'));
     }
 
     /**

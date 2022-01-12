@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use App\Institutation;
+use App\Section;
+use App\Type;
 
 class InstitutionController extends Controller
 {
@@ -28,8 +30,10 @@ class InstitutionController extends Controller
      */
     public function create()
     {
-        $inst=  Institution::get();
-        return view('insert.inst',compact('inst'));
+        $inst=  Institution::all();
+        $section=  Section::all();
+        $type=  Type::all();
+        return view('insert.inst',compact('inst','section','type'));
     }
 
     /**
@@ -55,7 +59,7 @@ class InstitutionController extends Controller
         Institution::create([
             'inst_name'=>$request ->inst_name,
             'found_year'=>$request ->found_year,
-            'type_name'=>$request ->type_id,
+            'inst_type'=>$request ->type_id,
             'section_name'=>$request ->section_id,
             'location'=>$request ->location,
             'phone_no'=>$request ->phone_no,

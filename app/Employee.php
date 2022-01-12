@@ -13,6 +13,10 @@ class Employee extends Model
     ];
     protected $primaryKey = 'id';
     protected $table = 'employees';
-
+   
+    public function institution ()
+    {
+        return $this->belongsTo('App\Institution','institution_id', 'id');
+    }
 
 }

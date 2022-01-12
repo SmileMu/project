@@ -35,11 +35,11 @@
                                         <label for="inputEmail3" class="col-sm-3 text-right control-label col-form-label">نوع القطاع</label>
                                        <div class="col-sm-9">
 
-                                           <select class="form-control" name= "section_id" >
+                                           <select class="form-control" name= "section_name" >
 
-                                               @foreach($sections as $section)
+                                               @foreach(App\Section::all() as $section)
 
-                                                   <option  value= "{{$section->id}}"> {{$section->name}} </option>
+                                                   <option  value= "{{$section->id}}"> {{$section->section_type}} </option>
                                               @endforeach
                                            </select>
                                         </div>
@@ -48,11 +48,11 @@
                                         <label for="inputEmail3" class="col-sm-3 text-right control-label col-form-label" >نوع المؤسسة</label>
                                           <div class="col-sm-9">
 
-                                              <select class="form-control" name="type_id" >
+                                              <select class="form-control" name="inst_type" >
 
-                                                 @foreach($types as $type)
+                                                 @foreach(App\Type::all() as $type)
 
-                                                     <option  value="{{$type->id}}"> {{$type->name}} </option>
+                                                     <option  value="{{$type->id}}"> {{$type->type_name}} </option>
                                                   @endforeach
                                               </select>
                                             </div>

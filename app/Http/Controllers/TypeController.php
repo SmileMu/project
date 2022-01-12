@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use DB;
 use App\type;
+use App\Institutation;
 
 class TypeController extends Controller
 {
@@ -26,8 +27,9 @@ class TypeController extends Controller
      */
     public function create()
     {
-        $type=  Type::get();
-        return view('insert.type',compact('type'));
+        $inst=  Institution::all();
+        $type=  Type::allt();
+        return view('insert.type',compact('type','inst'));
     }
 
     /**
